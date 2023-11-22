@@ -1,0 +1,45 @@
+.Toggle {
+  position: relative;
+  width: 40px;
+  height: 24px;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+
+  &.primary {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-primary);
+  }
+
+  &.secondary {
+    background: var(--color-primary);
+    border: 1px solid var(--color-secondary);
+  }
+
+  &.checked {
+    &.primary {
+      background: var(--color-primary);
+      border-color: var(--color-secondary);
+    }
+
+    &.secondary {
+      background: var(--color-secondary);
+      border-color: var(--color-primary);
+    }
+
+    .toggle-circle {
+      translate: 14px 0;
+      background: var(--color-secondary);
+    }
+  }
+
+  .toggle-circle {
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    transition: all 0.3s ease-in-out;
+  }
+}

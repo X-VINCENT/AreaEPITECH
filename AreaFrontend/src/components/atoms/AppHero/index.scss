@@ -1,0 +1,26 @@
+.AppHero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  .title {
+    font-family: Rockwell, sans-serif;
+    font-size: 25vmin;
+  }
+
+  .subtitle {
+    font-size: 8vmin;
+  }
+
+  @media screen and (min-width: 480px) {
+    .title {
+      font-size: 120px;
+    }
+
+    .subtitle {
+      font-size: 40px;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+.DateTimePicker {
+  display: flex;
+  flex-direction: column;
+
+  &.error {
+    label {
+      color: var(--red-800);
+    }
+
+    input {
+      color: var(--red-800);
+
+      &::placeholder {
+        color: var(--red-300);
+      }
+    }
+
+    .react-datepicker-wrapper {
+      &:focus-within {
+        outline-color: var(--red-800);
+      }
+    }
+  }
+
+  &.disabled {
+    label {
+      color: var(--gray-600);
+      background: var(--gray-300);
+    }
+
+    input {
+      color: var(--gray-600);
+
+      &:hover {
+        cursor: default;
+        pointer-events: none;
+      }
+
+      &::placeholder {
+        color: var(--gray-300);
+      }
+    }
+  }
+
+  label {
+    font-size: 12px;
+    padding: 0 4px;
+    color: var(--color-primary);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: calc(100% - 40px);
+    margin-bottom: 8px;
+  }
+
+  .react-datepicker-wrapper {
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid var(--color-primary);
+    background: var(--color-secondary);
+    border-radius: 28px;
+    transition: border, background 0.3s ease-in-out;
+
+    &:focus-within {
+      outline: 1px solid var(--color-primary);
+    }
+
+    input {
+      width: 100%;
+      padding: 16px 20px;
+    }
+  }
+
+  .react-datepicker {
+    min-width: 328px;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "logs": {
+    "title": "Journaux",
+    "status": "Status: ",
+    "filter": {
+      "pending": "En attente",
+      "success": "Succès",
+      "error": "Erreur",
+      "all": "Tout"
+    },
+    "tabulator": {
+      "id": "ID",
+      "area-id": "Area",
+      "message": "Message",
+      "status": "Status",
+      "date": "Date",
+      "no-data": "Aucune donnée disponible",
+      "pagination": {
+        "first": "Premier",
+        "first_title": "Première page",
+        "last": "Dernier",
+        "last_title": "Dernière page",
+        "prev": "Précédent",
+        "prev_title": "Page précédente",
+        "next": "Suivant",
+        "next_title": "Page suivante"
+      }
+    },
+    "no-logs": "Aucun journal disponible",
+    "no-logs-with-filter": "Aucun journal disponible avec ce filtre"
+  }
+}

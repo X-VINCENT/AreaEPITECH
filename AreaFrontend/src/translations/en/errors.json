@@ -1,0 +1,9 @@
+{
+  "errors": {
+    "unknown": "Something went wrong",
+    "email_already_taken": "Email already taken",
+    "password_too_short": "Password must be at least {{min}} characters long",
+    "passwords_dont_match": "Passwords don't match",
+    "invalid_credentials": "Invalid credentials"
+  }
+}

@@ -1,0 +1,164 @@
+.Input {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &.has-label {
+    margin-top: 24px;
+  }
+
+  &.error {
+    label {
+      color: var(--red-800);
+    }
+
+    .input-wrapper {
+      border-color: var(--red-800);
+
+      input {
+        color: var(--red-800);
+
+        &::placeholder {
+          color: var(--red-300);
+        }
+      }
+
+      &:focus-within {
+        outline-color: var(--red-800);
+      }
+    }
+  }
+
+  &.focused,
+  &.has-value,
+  &.fixed-label {
+    label {
+      top: -24px;
+      left: 0;
+      font-size: 12px;
+      padding: 0 4px;
+      color: var(--color-primary);
+    }
+
+    &.disabled {
+      label {
+        background: var(--color-secondary);
+      }
+    }
+  }
+
+  &.disabled {
+    label {
+      color: var(--gray-600);
+      background: var(--gray-300);
+    }
+
+    .input-wrapper {
+      border-color: var(--gray-600);
+      background: var(--gray-300);
+
+      &:focus-within {
+        outline-color: var(--gray-600);
+      }
+
+      input {
+        color: var(--gray-600);
+
+        &:hover {
+          cursor: default;
+          pointer-events: none;
+        }
+
+        &::placeholder {
+          color: var(--gray-300);
+        }
+      }
+
+      .toggle-type {
+        pointer-events: none;
+      }
+    }
+  }
+
+  label {
+    position: absolute;
+    z-index: 1;
+    font-size: 16px;
+    font-weight: 500;
+    background: var(--color-secondary);
+    top: 17px;
+    left: 20px;
+    width: calc(100% - 40px);
+    color: var(--gray-600);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .input-wrapper {
+    position: relative;
+    width: 100%;
+    border: 1px solid var(--color-primary);
+    background: var(--color-secondary);
+    border-radius: 28px;
+    overflow: hidden;
+    transition: border, background 0.3s ease-in-out;
+
+    &:focus-within {
+      outline: 1px solid var(--color-primary);
+    }
+
+    input {
+      padding: 16px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      width: 100%;
+
+      &::placeholder {
+        color: var(--gray-300);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    .toggle-type {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      translate: 0 -50%;
+      font-size: 16px;
+      color: var(--gray-600);
+      transition: all 0.3s ease-in-out;
+      animation: easeInOut 0.3s;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    @keyframes easeInOut {
+      0% {
+        opacity: 0;
+        scale: 0;
+      }
+      100% {
+        opacity: 1;
+        scale: 1;
+      }
+    }
+  }
+
+  .bottom-content,
+  .error {
+    color: var(--color-primary);
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .error {
+    color: var(--red-800);
+    transition: all 0.3s ease-in-out;
+  }
+}

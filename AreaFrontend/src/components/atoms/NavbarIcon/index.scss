@@ -1,0 +1,37 @@
+.NavbarIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease-in-out;
+
+    path {
+      fill: var(--color-secondary);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  span {
+    font-family: Rockwell, sans-serif;
+    font-size: 28px;
+    color: var(--color-secondary);
+    transition: all 0.3s ease-in-out;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 8px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    span {
+      font-size: 32px;
+    }
+  }
+}

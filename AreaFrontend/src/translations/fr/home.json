@@ -1,0 +1,17 @@
+{
+  "home": {
+    "create":"Créer une area",
+    "or": "OU",
+    "start_with_template": "Commencez avec un de nos modèles",
+    "connect_services": "Connectez-vous aux services ci-dessous pour accéder aux Actions et Réactions",
+    "templates": {
+      "1": "Recevoir un mail quand la température atteint un certain niveau",
+      "2": "Transférer un mail Gmail",
+      "3": "Ajouter une tâche dans Microsoft To-Do quand un commit est fait sur GitHub",
+      "4": "Envoyer un message Teams quand un commit est fait sur GitLab",
+      "5": "Ajouter un événement dans Google Calendar avec les dernières actualités de l'heure",
+      "6": "Ajouter la température dans un Google Doc quand elle est inférieure à un certain niveau",
+      "7": "Ajouter une note dans Microsoft Note quand les précipitations sont supérieures à un certain niveau"
+    }
+  }
+}

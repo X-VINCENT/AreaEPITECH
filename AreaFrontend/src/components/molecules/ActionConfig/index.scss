@@ -1,0 +1,13 @@
+.ActionConfig {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .Input {
+    label {
+      background: none !important;
+      color: var(--color-primary) !important;
+    }
+  }
+}

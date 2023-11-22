@@ -1,0 +1,84 @@
+{
+  "areas": {
+    "title": "Areas",
+    "create": "Créer une area",
+    "no-areas": "Aucune area",
+    "shutdown-areas": "Areas désactivées",
+    "success": {
+      "delete": "Area supprimée avec succès",
+      "update": "Area mis à jour avec succès",
+      "create": "Area créé avec succès"
+    },
+    "error": {
+      "delete": "Erreur lors de la suppression de l'area",
+      "update": "Erreur lors de la mise à jour de l'area",
+      "create": "Erreur lors de la création de l'area",
+      "name_length": "Le nom de l'area ne doit pas dépasser 255 caractères",
+      "refresh_delay": "Le délai de rafraîchissement doit être inclu entre 60 et 86400 secondes"
+    },
+    "confirm-delete": {
+      "title": "Suppression area {{id}}",
+      "message": "Êtes-vous sûr de vouloir supprimer l'area {{id}} ?",
+      "confirm": "Oui",
+      "cancel": "Non"
+    },
+    "edit-area-pane": {
+      "title": {
+        "create": "Créer une nouvelle area",
+        "edit": "Modifier l'area {{id}}"
+      },
+      "fields": {
+        "name": "Nom",
+        "description": "Description",
+        "active": "Active",
+        "action_id": "Action",
+        "reaction_id": "Réaction",
+        "refresh_delay": "Délai de rafraîchissement (en secondes)"
+      },
+      "placeholders": {
+        "action_id": "Choisissez une action",
+        "reaction_id": "Choisissez une réaction"
+      },
+      "modal": {
+        "title": {
+          "action_id": "Actions",
+          "reaction_id": "Réactions"
+        }
+      },
+      "button": {
+          "create": "Créer",
+          "update": "Mettre à jour"
+      }
+    },
+    "no-services": "Aucun service",
+    "no-actions-for-service": "Aucune action pour ce service",
+    "action-disabled": "Assurez-vous d'être connecté au service",
+    "config-keys": {
+      "temperature": "Température",
+      "humidity": "Humidité",
+      "windSpeed": "Vitesse du vent",
+      "precipitation": "Précipitation",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "mail": "Mail",
+      "documentName": "Nom du document",
+      "subject": "Sujet",
+      "keywords": "Mots clés",
+      "channelId": "Identifiant du channel",
+      "recipientId": "Identifiant du destinataire",
+      "calendarId": "Identifiant du calendrier",
+      "title": "Titre",
+      "start": "Début",
+      "end": "Fin",
+      "owner": "Propriétaire",
+      "repo": "Dépôt",
+      "taskListName": "Nom de la liste de tâches",
+      "chatId": "Identifiant du chat",
+      "notebookName": "Nom du notebook",
+      "sectionName": "Nom de la section",
+      "pageName": "Nom de la page",
+      "postId": "Identifiant du post",
+      "projectId": "Identifiant du projet"
+    }
+  }
+}

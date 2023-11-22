@@ -1,0 +1,14 @@
+.LanguageSelector {
+  img {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 8px;
+  }
+
+  .language {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-secondary);
+  }
+}

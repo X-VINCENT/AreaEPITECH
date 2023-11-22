@@ -1,0 +1,99 @@
+version: '3.8'
+services:
+  #Nginx load balancer
+  loadBalancer:
+    image: nginx:alpine
+    container_name: loadBalancer
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "8000:8000"
+      - "8080:8080"
+      - "8081:8081"
+      - "443:443"
+    volumes:
+      - ./nginx/loadBalancer/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/webServer/:/etc/nginx/conf.d/
+      - app-data:/var/www/html/
+    networks:
+      - app-network
+
+  #PHP laravel Service
+  api:
+    build:
+      context: ../API
+      dockerfile: ../deploy/containers/api.Dockerfile
+    container_name: api-laravel
+    working_dir: /var/www/html
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+    depends_on:
+      - database
+      - loadBalancer
+    volumes:
+      - ../deploy/dev/env/.env.api:/var/www/html/.env
+      -  app-data:/var/www/html/
+    networks:
+      - app-network
+
+  # Vite js web
+  front-web:
+    build:
+      context: ../AreaFrontend
+      dockerfile: ../deploy/containers/web.Dockerfile
+    container_name: front-web
+    restart: unless-stopped
+    env_file:
+      - ../deploy/dev/env/.env.web
+    depends_on:
+      - loadBalancer
+    volumes:
+      - build-apk:/app/public/files/build/
+    networks:
+      - app-network
+
+#  # Flutter mobile app
+  front-mobile-build:
+    build:
+      context: ../mobile
+      dockerfile: ../deploy/containers/mobile.Dockerfile
+    container_name: front-mobile
+    working_dir: /home/developer/mobile
+    env_file:
+      - ../deploy/dev/env/.env.mobile
+    volumes:
+      - ../deploy/dev/env/.env.mobile:/home/developer/mobile/assets/.env
+      - build-apk:/var/build/apk/
+    networks:
+      - app-network
+
+  #Postgres database Service
+  database:
+    container_name: db-postgres
+    build:
+      context: .
+      dockerfile: containers/database.Dockerfile
+    restart: unless-stopped
+    env_file:
+      - ../deploy/dev/env/.env.database
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+
+#Volumes
+volumes:
+  db-data:
+    driver: local
+  app-data:
+    driver: local
+  build-apk:
+    driver: local

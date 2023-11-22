@@ -1,0 +1,72 @@
+@import '../../styles/tabulator.scss';
+
+.Logs {
+  position: relative;
+  height: calc(100dvh - var(--navbar-height));
+  max-width: var(--max-width);
+  margin: var(--navbar-height) auto 0 auto;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+
+  .logs-container {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .loader {
+      width: 28px;
+      height: 28px;
+      margin: 0 auto;
+    }
+
+    .tabulator-wrapper,
+    .empty {
+      padding: 0 24px;
+    }
+
+    .tabulator {
+      min-width: 750px;
+
+      .tabulator-col {
+        &:nth-child(5) {
+          justify-content: flex-end;
+          padding: 0 24px;
+        }
+      }
+
+      .tabulator-row {
+        .tabulator-cell {
+          &:nth-child(4) {
+            padding: 0 6px;
+          }
+
+          &:nth-child(5) {
+            .formatterCell {
+              text-align: right;
+              padding: 0 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .logs-container {
+      .page-header {
+        padding: 64px 24px 24px 24px;
+      }
+    }
+  }
+}

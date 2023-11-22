@@ -1,0 +1,13 @@
+{
+  "tools": {
+    "elapsedTimeLabel": {
+      "day-with-count_one": "{{count}} jour",
+      "day-with-count_other": "{{count}} jours",
+      "days-difference": "Il y a {{days}} à {{time}}",
+      "minutes-difference": "Il y a {{minutes}} min",
+      "yesterday": "Hier",
+      "today": "Aujourd'hui",
+      "just-now": "À l'instant"
+    }
+  }
+}

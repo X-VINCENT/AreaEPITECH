@@ -1,0 +1,11 @@
+.PageTitle {
+  font-family: Rockwell, sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--color-primary);
+  transition: all 0.3s ease-in-out;
+
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+  }
+}

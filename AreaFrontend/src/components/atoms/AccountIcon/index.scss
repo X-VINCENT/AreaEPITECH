@@ -1,0 +1,19 @@
+.AccountIcon {
+  svg {
+    width: 100%;
+    height: 100%;
+    max-width: 96px;
+    max-height: 96px;
+
+    path {
+      fill: var(--color-primary);
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    svg {
+      max-width: 128px;
+      max-height: 128px;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.Welcome {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 48px;
+
+  .animation {
+    height: 160px;
+    pointer-events: none;
+
+    svg {
+      path {
+        stroke: var(--color-primary);
+      }
+    }
+  }
+
+  .bottom-container {
+    width: 100%;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 28px;
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      width: 100%;
+
+      .Button {
+        width: 300px;
+      }
+    }
+
+    .or {
+      font-weight: 600;
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+  }
+
+  @media screen and (min-width: 480px) {
+    gap: 96px;
+  }
+}

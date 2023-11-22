@@ -1,0 +1,84 @@
+{
+  "areas": {
+    "title": "Areas",
+    "create": "Create an area",
+    "no-areas": "No areas",
+    "shutdown-areas": "Shutdown areas",
+    "success": {
+      "delete": "Area deleted successfully",
+      "update": "Area updated successfully",
+      "create": "Area created successfully"
+    },
+    "error": {
+      "delete": "Error deleting area",
+      "update": "Error updating area",
+      "create": "Error creating area",
+      "name_length": "Name must be less than 255 characters",
+      "refresh_delay": "Refresh delay must be between 60 and 86400 seconds"
+    },
+    "confirm-delete": {
+      "title": "Delete area {{id}}",
+      "message": "Are you sure you want to delete area {{id}}?",
+      "confirm": "Yes",
+      "cancel": "No"
+    },
+    "edit-area-pane": {
+      "title": {
+        "create": "Create new area",
+        "edit": "Edit area {{id}}"
+      },
+      "fields": {
+        "name": "Name",
+        "description": "Description",
+        "active": "Active",
+        "action_id": "Action",
+        "reaction_id": "Réaction",
+        "refresh_delay": "Refresh delay (seconds)"
+      },
+      "placeholders": {
+        "action_id": "Choose an action",
+        "reaction_id": "Choose a reaction"
+      },
+      "modal": {
+        "title": {
+          "action_id": "Actions",
+          "reaction_id": "Reactions"
+        }
+      },
+      "button": {
+        "create": "Create",
+        "update": "Update"
+      }
+    },
+    "no-services": "No services",
+    "no-actions-for-service": "No action for this service",
+    "action-disabled": "Make sure you're connected to the service",
+    "config-keys": {
+      "temperature": "Temperature",
+      "humidity": "Humidity",
+      "windSpeed": "Wind speed",
+      "precipitation": "Precipitation",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "mail": "Mail",
+      "documentName": "Name of the document",
+      "subject": "Subject",
+      "keywords": "Keywords",
+      "channelId": "Channel ID",
+      "recipientId": "Recipient ID",
+      "calendarId": "Calendar ID",
+      "title": "Title",
+      "start": "Start",
+      "end": "End",
+      "owner": "Owner",
+      "repo": "Repository",
+      "taskListName": "Task list name",
+      "chatId": "Chat ID",
+      "notebookName": "Notebook name",
+      "sectionName": "Section name",
+      "pageName": "Page name",
+      "postId": "Post ID",
+      "projectId": "Project ID"
+    }
+  }
+}

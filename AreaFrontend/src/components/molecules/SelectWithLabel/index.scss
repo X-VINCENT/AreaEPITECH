@@ -1,0 +1,110 @@
+.SelectWithLabel {
+  $border-radius: 28px;
+
+  position: relative;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+  border-radius: $border-radius;
+
+  .current {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 16px 24px;
+    width: 100%;
+    height: 100%;
+    border-radius: $border-radius;
+
+    .value {
+      font-weight: 700;
+      margin-right: auto;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--color-secondary);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .options {
+    position: absolute;
+    top: 100%;
+    left: -1px;
+    right: 0;
+    width: calc(100% + 2px);
+    z-index: 1;
+    background: var(--color-primary);
+    height: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-secondary);
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    transition: height 0.2s ease-in-out;
+
+    .option {
+      height: 48px;
+      border-top: 1px solid grey;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+
+      &.selected {
+        background: var(--gray-600);
+        color: var(--color-primary);
+        font-weight: 700;
+      }
+
+      &:hover {
+        background: var(--gray-600);
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  &.open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    button {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .current{
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    .options {
+      border-bottom-width: 1px;
+    }
+  }
+
+  &.disabled {
+    background: var(--gray-300);
+    color: var(--gray-600);
+    border-color: var(--gray-600);
+
+    * {
+      cursor: not-allowed;
+    }
+
+    .current {
+      svg {
+        fill: var(--gray-600);
+      }
+    }
+
+    .options {
+      border-color: var(--gray-600);
+    }
+  }
+}

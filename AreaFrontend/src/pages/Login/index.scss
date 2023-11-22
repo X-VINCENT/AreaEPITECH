@@ -1,0 +1,18 @@
+.Login {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 64px;
+  padding: 24px;
+
+  .bottom-container {
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+}

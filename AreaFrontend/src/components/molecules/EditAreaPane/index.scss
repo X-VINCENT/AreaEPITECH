@@ -1,0 +1,217 @@
+.EditAreaPane {
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  animation: slide-in-top 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background: var(--color-secondary);
+  transition: all 0.3s ease-in-out;
+
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+
+    .header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px;
+      background: var(--color-primary);
+      color: var(--color-secondary);
+      font-size: 20px;
+      font-weight: 700;
+      gap: 10px;
+      transition: all 0.3s ease-in-out;
+
+      .close-btn {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: 1px solid var(--color-primary);
+        border-radius: 24px;
+        padding: 8px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          border-color: var(--color-secondary);
+        }
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .content {
+      width: 100%;
+      height: 100%;
+      padding: 32px;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+
+      .fields {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .Input,
+        .TextArea {
+          label {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+          }
+        }
+
+        input,
+        textarea {
+          color: var(--color-primary);
+        }
+
+        textarea {
+          height: 150px;
+          min-height: 52px;
+          max-height: 300px;
+          resize: vertical;
+        }
+
+        .ToggleType,
+        .ActionType,
+        .ReactionType {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          .label {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            width: calc(100% - 40px);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 0 4px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+          }
+        }
+
+        .ActionType {
+          position: relative;
+
+          .join-line {
+            z-index: 10;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            rotate: 180deg;
+            width: 3px;
+            height: 54px;
+            background-image: repeating-linear-gradient(0deg, var(--color-primary), var(--color-primary) 6px, transparent 6px, transparent 12px, var(--color-primary) 12px);
+            background-size: 2px calc(100% + 12px);
+            background-position: 0 0, 0 0, 100% 0, 0 100%;
+            background-repeat: no-repeat;
+            animation: borderAnimation 0.6s infinite linear;
+            transition: all 0.3s ease-in-out;
+          }
+
+          @keyframes borderAnimation {
+            from {
+              background-position: 0 0, -12px 0, 100% -12px, 0 100%;
+            }
+            to {
+              background-position: 0 -12px, 0 0, 100% 0, -12px 100%;
+            }
+          }
+        }
+      }
+
+      & > .Button {
+        &:hover {
+          border-color: var(--color-secondary);
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    position: sticky;
+    height: calc(100dvh - var(--navbar-height));
+    width: 600px;
+    resize: horizontal;
+    padding: 32px 16px;
+    animation: slide-in-left 0.5s;
+    transition: all 0.3s ease-in-out;
+    overflow:auto;
+
+    .wrapper {
+      border-radius: 32px;
+      background: var(--color-primary);
+      color: var(--color-secondary);
+      border: 1px solid var(--color-primary);
+      overflow: hidden;
+      resize: horizontal;
+      box-shadow: 4px 4px 0 0 var(--color-primary);
+
+      .header {
+        padding: 24px 32px;
+        background: var(--color-secondary);
+        color: var(--color-primary);
+
+        .close-btn {
+          border-color: var(--color-secondary);
+
+          &:hover {
+            border-color: var(--color-primary);
+          }
+        }
+      }
+
+      .content {
+        .fields {
+          .Input,
+          .TextArea {
+            label {
+              background: var(--color-primary);
+              color: var(--color-secondary);
+            }
+          }
+
+          input,
+          textarea {
+            color: var(--color-primary);
+          }
+
+          .ToggleType,
+          .ActionType,
+          .ReactionType {
+            .label {
+              background: var(--color-primary);
+              color: var(--color-secondary);
+            }
+          }
+
+          .ActionType {
+            .join-line {
+              background-image: repeating-linear-gradient(0deg, var(--color-secondary), var(--color-secondary) 6px, transparent 6px, transparent 12px, var(--color-secondary) 12px);
+            }
+          }
+        }
+      }
+    }
+  }
+}

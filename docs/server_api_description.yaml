@@ -1,0 +1,581 @@
+openapi: 3.0.3
+info:
+  title: Area API Descriptor
+  version: 1.0.0
+  description: API documentation for your service
+
+externalDocs:
+  description: Find out more about Swagger
+  url: https://swagger.io
+
+servers:
+  - url: https://address/api
+
+tags:
+  - name: authentication
+    description: All services available to login and action/reaction
+  - name: services
+    description: All services available
+  - name: areas
+    description: Access to all user areas
+  - name: actions
+    description: Actions
+  - name: reactions
+    description: Reactions
+  - name: admin
+    description: admin
+
+paths:
+  /login:
+    get:
+      tags:
+        - authentication
+      summary: Login user
+      description: Return Bearer token upon successful login
+      parameters:
+        - name: user
+          in: query
+          description: Email or username
+          schema:
+            type: string
+          required: true
+        - name: password
+          in: query
+          description: Password
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User login successful
+          content:
+            application/json:
+              example:
+                success: true
+                data:
+                  user:
+                    id: 2
+                    name: "jean eude de la conta"
+                    email: "test.email@gmail.com"
+                    roles: null
+                    created_at: "2023-10-30T15:48:35.000000Z"
+                    updated_at: "2023-10-30T15:48:35.000000Z"
+                    google_id: null
+                    github_id: null
+                    gitlab_id: null
+                    stackexchange_id: null
+                    stackexchange_token: null
+                    stackexchange_refresh_token: null
+                    stackexchange_expires_at: null
+                    microsoft_id: null
+                    microsoft_token: null
+                    microsoft_refresh_token: null
+                    microsoft_expires_at: null
+                  token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9...your_token_here"
+                message: "User login successfully"
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /register:
+    put:
+      tags:
+        - authentication
+      summary: Register user
+      description: Register a new user
+      parameters:
+        - name: user
+          in: query
+          description: Email or username
+          schema:
+            type: string
+        - name: password
+          in: query
+          description: Password
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User register successfully.
+          content:
+            application/json:
+              example:
+                success: true
+                data:
+                  user:
+                    id: 4
+                    name: "jean eude de la conta"
+                    email: "test.email2@gmail.com"
+                    created_at: "2023-11-01T21:13:42.000000Z"
+                    updated_at: "2023-11-01T21:13:42.000000Z"
+                  token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9..."
+                message: "User register successfully."
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+  /services:
+    get:
+      tags:
+        - services
+      security:
+        - bearerAuth: [ ]
+      summary: Get all services
+      description: Retrieve a list of all services.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Service'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /services/{id}:
+    get:
+      tags:
+        - services
+      security:
+        - bearerAuth: [ ]
+      summary: Get a service by ID
+      description: Retrieve a service by its ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID of the service to retrieve.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Service'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /actions:
+    get:
+      tags:
+        - actions
+      security:
+        - bearerAuth: [ ]
+      summary: Get all actions
+      description: Retrieve a list of all actions.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Action'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /actions/{id}:
+    get:
+      tags:
+        - actions
+      security:
+        - bearerAuth: [ ]
+      summary: Get an action by ID
+      description: Retrieve an action by its ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID of the action to retrieve.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Action'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /reactions:
+    get:
+      tags:
+        - reactions
+      security:
+        - bearerAuth: [ ]
+      summary: Get all reactions
+      description: Retrieve a list of all reactions.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Reaction'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /reactions/{id}:
+    get:
+      tags:
+        - reactions
+      security:
+        - bearerAuth: [ ]
+      summary: Get all reactions
+      description: Retrieve a list of all reactions.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reaction'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /areas:
+    get:
+      tags:
+        - areas
+      security:
+        - bearerAuth: [ ]
+      summary: Get all areas
+      description: Retrieve a list of all areas.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Area'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+    post:
+      tags:
+        - areas
+      security:
+        - bearerAuth: [ ]
+      summary: Create an area
+      description: Create a new area.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AreaInput'
+      responses:
+        '201':
+          description: Area created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Area'
+  /areas/{id}:
+    get:
+      tags:
+        - areas
+      security:
+        - bearerAuth: [ ]
+      summary: Get an area by ID
+      description: Retrieve an area by its ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID of the area to retrieve.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Area'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+    put:
+      tags:
+        - areas
+      security:
+        - bearerAuth: [ ]
+      summary: Update an area by ID
+      description: Update an existing area by its ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID of the area to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AreaInput'
+      responses:
+        '200':
+          description: Area updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Area'
+    delete:
+      tags:
+        - areas
+      security:
+        - bearerAuth: [ ]
+      summary: Delete an area by ID
+      description: Delete an area by its ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID of the area to delete.
+      responses:
+        '204':
+          description: Area deleted successfully
+  /areas/{id}/logs:
+    get:
+      tags:
+        - areas
+      security:
+        - bearerAuth: [ ]
+      summary: Get logs for an area
+      description: Returns logs for an area with pagination.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Area ID
+          schema:
+            type: integer
+        - name: page
+          in: query
+          description: Page number (optional)
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AreaLog'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /areas/{id}/logs/{logId}:
+    get:
+      tags:
+        - areas
+      security:
+        - bearerAuth: [ ]
+      summary: Get a specific log for an area
+      description: Returns a specific log for an area.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Area ID
+          schema:
+            type: integer
+        - name: logId
+          in: path
+          required: true
+          description: Log ID
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AreaLog'
+        '404':
+          description: Log not found
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        remember_token:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        google_id:
+          type: string
+          nullable: true
+        github_id:
+          type: string
+          nullable: true
+        facebook_id:
+          type: string
+          nullable: true
+      required: [ name, email, password ]
+      example:
+        id: 1
+        name: "John Doe"
+        email: "john.doe@example.com"
+        password: "hashed_password_here"
+        remember_token: "remember_token_here"
+        created_at: "2023-09-25T08:00:00Z"
+        updated_at: "2023-09-25T08:30:00Z"
+        google_id: "google_id_here"
+        github_id: null
+        facebook_id: null
+    Service:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo_url:
+          type: string
+      example:
+        id: 1
+        name: Google
+        logo_url: https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg
+    Action:
+      type: object
+      properties:
+        id:
+          type: integer
+        service_id:
+          type: integer
+        key:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+      example:
+        id: 1
+        service_id: 1
+        key: search
+        name: Search
+        description: Perform a search
+    Area:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        actions:
+          type: array
+          items:
+            type: integer
+      example:
+        id: 1
+        name: Home
+        actions: [1, 2]
+    AreaLog:
+      type: object
+      properties:
+        id:
+          type: integer
+        created_at:
+          type: string
+      example:
+        id: 1
+        created_at: "2023-09-25T10:00:00Z"
+    Reaction:
+      type: object
+      properties:
+        id:
+          type: integer
+        action_id:
+          type: integer
+        key:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+      example:
+        id: 1
+        action_id: 1
+        key: show
+        name: Show
+        description: Show something
+    AreaInput:
+      type: object
+      properties:
+        name:
+          type: string
+        actions:
+          type: array
+          items:
+            type: integer
+      example:
+        name: New Area
+        actions: [1, 2]
+  responses:
+    UnauthorizedError:
+      description: Invalid credentials.
+      content:
+        application/json:
+          example:
+            message: "Invalid credentials. Please check your credentials"
+    BadRequestError:
+      description: Invalid requests.
+      content:
+        application/json:
+          example:
+            success: false
+            message: Invalid requests. specification
+            data: [ ]
+
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: api_key
+      in: header
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - ApiKeyAuth: [ ]

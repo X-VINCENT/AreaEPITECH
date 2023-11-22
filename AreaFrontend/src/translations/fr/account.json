@@ -1,0 +1,17 @@
+{
+  "account": {
+    "title": "Compte",
+    "download-apk": "Télécharger l'APK",
+    "services": "Services",
+    "no-services": "Aucun service",
+    "no-oauth": "Pas un service OAuth",
+    "connected": "Connecté·e",
+    "not-connected": "Non connecté·e",
+    "confirm-disconnect": {
+      "title": "Déconnexion de {{service}}",
+      "message": "Êtes-vous sûr·e de vouloir vous déconnecter de {{service}} ?",
+      "confirm": "Oui",
+      "cancel": "Non"
+    }
+  }
+}

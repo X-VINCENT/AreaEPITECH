@@ -1,0 +1,68 @@
+name: src
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.1.2 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  rive: ^0.11.4
+  flutter_riverpod: ^2.4.0
+  flutter_secure_storage: ^9.0.0
+  shared_preferences: ^2.2.1
+  enhanced_http: ^4.1.0
+  flutter_translate: ^4.0.4
+  flutter_localization: ^0.1.14
+  google_nav_bar: ^5.0.6
+  line_icons: ^2.0.3
+  flutter_easyloading: ^3.0.5
+  flutter_spinkit: ^5.2.0
+  touchable_opacity: 1.2.0
+  lottie: ^2.6.0
+  webview_flutter: 3.0.4
+  webview_flutter_wkwebview: 2.7.0
+  page_transition: "^2.1.0"
+  flutter_svg: ^2.0.7
+  flutter_web_auth_2: ^3.0.0
+  flutter_dotenv: ^5.1.0
+  shimmer: ^3.0.0
+  text_scroll: ^0.2.0
+  animations: ^2.0.8
+  flutter_localizations:
+    sdk: flutter
+  pkce: ^1.1.0+1
+  http_mock_adapter: ^0.6.0
+  date_picker_plus: ^1.1.4
+  intl: ^0.18.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - .env
+    - assets/riv/
+    - assets/lottie/
+    - assets/images/
+    - assets/i18n/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: fonts/Inter/Inter-Medium.ttf
+        - asset: fonts/Inter/Inter-SemiBold.ttf
+    - family: Rockwell
+      fonts:
+        - asset: fonts/Rockwell/Rockwell.ttf
+        - asset: fonts/Rockwell/Rockwell-Bold.ttf

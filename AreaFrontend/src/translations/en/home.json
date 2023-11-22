@@ -1,0 +1,17 @@
+{
+  "home": {
+    "create":"Create an area",
+    "or": "OR",
+    "start_with_template": "Start with one of our customs templates",
+    "connect_services": "Connect to the services below to access Actions and Reactions",
+    "templates": {
+      "1": "Receive mail when temperature hits a certain level",
+      "2": "Transfer Gmail mail",
+      "3": "Add a new task in Microsoft To-Do when a commit is made on GitHub",
+      "4": "Send a Teams message when a commit is made on GitLab",
+      "5": "Add an event in Google Calendar with last hour news",
+      "6": "Add temperature in Google Doc when it is lower than a certain level",
+      "7": "Add a note in Microsoft Note when precipitations are higher than a certain level"
+    }
+  }
+}

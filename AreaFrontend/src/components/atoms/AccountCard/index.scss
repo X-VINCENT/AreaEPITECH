@@ -1,0 +1,25 @@
+.AccountCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .informations {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .name {
+      font-family: Rockwell, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .mail {
+      font-family: Rockwell, sans-serif;
+      font-size: 16px;
+      line-height: 1;
+      color: var(--gray-300);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}

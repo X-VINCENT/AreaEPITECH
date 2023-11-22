@@ -1,0 +1,28 @@
+.AreasList {
+  width: 100%;
+  overflow: auto;
+
+  .areas-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 0 24px;
+    width: max-content;
+
+    & > svg {
+      width: 200px;
+      height: 200px;
+      min-width: 200px;
+      min-height: 200px;
+      border-radius: 10px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .areas-wrapper {
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 38px;
+    }
+  }
+}

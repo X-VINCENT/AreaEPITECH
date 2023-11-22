@@ -1,0 +1,17 @@
+{
+  "account": {
+    "title": "Account",
+    "download-apk": "Download APK",
+    "services": "Services",
+    "no-services": "No services",
+    "no-oauth": "Not an OAuth service",
+    "connected": "Connected",
+    "not-connected": "Not connected",
+    "confirm-disconnect": {
+      "title": "Disconnect from {{service}}",
+      "message": "Are you sure you want to disconnect from {{service}}?",
+      "confirm": "Yes",
+      "cancel": "No"
+    }
+  }
+}
